@@ -1,4 +1,8 @@
-## Welcome to GitHub Pages
+## Introduction To Python
+### Big Data in Biology Summer School
+### May 21-24, 2018
+### Center for Comptational Biology and Bioinformatics, UT Austin
+
 
 You can use the [editor on GitHub](https://github.com/sjspielman/bdib2018_python/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
