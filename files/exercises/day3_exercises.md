@@ -14,42 +14,48 @@ geometry: margin=0.75in
 	+ Grades between 75-95 (inclusive) remain the same
 	+ Grades below 75 are raised by 10%. 
 
-	You have been tasked with crunching the numbers! Perform the following tasks with these rules in mind:
+	You have been tasked with crunching the numbers! Perform the following tasks:
+	\vspace{0.5cm}
 	
 	+ Create a list of new grades that reflects these rules from the following original grades:
 	
 			grades = [45, 94, 25, 68, 88, 95, 72, 79, 91, 82, 53, 66, 58]
 	
 	
+	\vspace{0.25cm}
 	+ The professor has changed his mind: he now wants to use a scaling factor of 0.078325 (instead of 0.1), because why not! Recompute the grades from part 1 using this new scaling (Hint: no hard-coding!)
 
+	\vspace{0.25cm}
 	+ The *nested* list below contains three sets of grades for silly professor's three classes:
 	
-			all_grades = [[45, 94, 25, 68, 88, 95, 72, 79, 91, 82, 53, 66, 58], [23, 46, 17, 67, 55, 42, 31, 73], [91, 83, 79, 76, 82, 91, 95, 77, 82, 77]]
+			all_grades = [[45, 94, 25, 68, 88, 95, 72, 79, 91, 82, 53, 66, 58], 
+							 [23, 46, 17, 67, 55, 42, 31, 73], 
+							 [91, 83, 79, 76, 82, 91, 95, 77, 82, 77]]
 	
-	Create a new nested list with the curved grades for each of these groups.
+		Create a new nested list with the curved grades for each of these groups.
 	 
+	 \vspace{0.25cm}
 	 + Now, imagine that those three sets of grades correspond, in order, to the classes indicated in this list:
 
 
-		class_names = ["Psychology 101", "Sociology 101", "Political Science 101"]
+		`class_names = ["Psychology 101", "Sociology 101", "Political Science 101"]`
 		
-Create a *dictionary* representing the *curved* grades for each of these classes. Your final dictionary should have the class name as keys, and each list of curved grades as values.
+		Create a *dictionary* representing the *curved* grades for each of these classes. Your final dictionary should have the class name as keys, and each list of curved grades as values.
 
-
+\newpage
 2. For this set of questions, you will calculate the molecular weight of a protein sequence, using this dictionary:
 
-			amino_weights = {"A":89.09, "R":174.20, "N":132.12, \\
-								"D":133.10, "C":121.15, "Q":146.15, \\
-								"E":147.13, "G":75.07, "H":155.16, \\
-								"I":131.17, "L":131.17, "K":146.19, \\
-								"M":149.21, "F":165.19, "P":115.13, \\
-								"S":105.09, "T":119.12, "W":204.23, \\
+			amino_weights = {"A":89.09, "R":174.20, "N":132.12, 
+								"D":133.10, "C":121.15, "Q":146.15, 
+								"E":147.13, "G":75.07, "H":155.16, 
+								"I":131.17, "L":131.17, "K":146.19, 
+								"M":149.21, "F":165.19, "P":115.13, 
+								"S":105.09, "T":119.12, "W":204.23, 
 								"Y":181.19, "V":117.15} 
 
 	+ Calculate the molecular weight of this sequence: `"GAHYADPLVKMPWRTHC"`
 	
-	+ Now, calculate the molecular weight of this sequence *which contains ambiguities*: `""KLSJXXFOWXNNCPRHGGYA"`. Assume that the molecular weight of an ambiguous amino acid is the average weight of all amino acids.
+	+ Now, calculate the molecular weight of this sequence *which contains ambiguities*: `"KLSJXXFOWXNNCPRHGGYA"`. Assume that the molecular weight of an ambiguous amino acid is the average weight of all amino acids.
 
 3. For this question, you will tabulate the number of each nucleotide in a DNA sequence. 
 
@@ -74,13 +80,36 @@ Create a *dictionary* representing the *curved* grades for each of these classes
 
 # Part III: File Input/Output
 
-read and write a few files VERY SIMPLY
+Files used in these exercises can be downloaded from the course website. Be sure to write your scripts in the same directory as these files!
 
+1. Open the file `file1.txt` in read-mode, and print its contents to screen. Use the `.read()` method, which saves the contents of the file to a single string. Perform this task twice: once using `open` and `close`, and once using `with` control-flow.
+	
+2. Open the file `file1.txt` in read-mode, and save all lines in this file to a list using the `.readlines()` method. Write a new file called `upper_file1.txt` which contains the same contents of `file1.txt` but in upper-case. Try to do this task using a single for-loop, and don't forget that in order to write newlines (the "enter" key) to a file, you must include `\n` in the string you are writing to file!
+	
+3. Open the newly created file `upper_file1.txt` in read-mode. Loop over the file lines *without* using `.read()` or `.readlines()`, and print out lines as you loop.
 
-# Part IV: Parsing files
+4. Modify the previous for-loop to only print out lines in `upper_file1.txt` which contain at least (i.e. $>=$) 5 letter `E`'s. 
+	
+5. You should notice 20 files named `file1.txt, file2.txt, ..., file20.txt`. Write a for-loop to open each of these files (Hint: use the `range()` function to loop over file names). For each file, print each line that contains more than 25 characters.
 
+6. Convert our zoo-keeper dictionaries into a *comma-separated file* with the header `animal,vore,food`, and rows should contain corresponding information, i.e. `lion,carnivore,meat`. Perform this task with a *single* for-loop.
+		
+		category = {"lion": "carnivore", 
+		            "gazelle": "herbivore", 
+		            "anteater": "insectivore", 
+		            "alligator": "homovore", 
+		            "hedgehog": "insectivore", 
+		            "cow": "herbivore", 
+		            "tiger": "carnivore", 
+		            "orangutan": "frugivore"}
+		 
+		 feed = {"carnivore": "meat", 
+		         "herbivore": "grass", 
+		         "frugivore": "mangos", 
+		         "homovore": "visitors", 
+		         "insectivore": "termites"}
 
-convert tab to csv?
-loop over a csv and only retain the first and last column?
+7. Create a second zoo-keeper file by *converting* the CSV into a tab-separated file. Perform this task by reading in the CSV, *replacing* commas with tabs, where tabs can be created as the string `"\t"`. For this, use the string method `.replace()`. This method takes two arguments: the pattern to replace, and the replacement. For example, the following snippet will replace all commas with tabs in a string called `mystring`: 
 
-
+		mystring2 = mystring.replace(",", "\t")
+		
