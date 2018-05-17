@@ -61,24 +61,29 @@ First, define the following variables:
 
 5. Create a new variable called `both_animals` which contains the contents "SPARROWorangutan". Make sure to do this entirely with variable names (not with the actual words themselves!!). 
 
+\newpage
 # Part IV: Working with lists 
 
 First, define this list variable: `numbers = [0, 1, 1, 2, 3, 5, 8, 13]`.
 
 1. Use indexing to print out the *fourth* item of the list. Now, use indexing to *redefine* the fourth element of the list `numbers` to be -10. Print the list to check.
 
-2. Use indexing to the print *last two* items of the list. Do this in two ways:
+2. Use the `.index()` method to determine which position in the list contains the value `5`, and redefine this value as `15`.
+
+3. Use the `.count()` method to determine how many items in this list are equal to `1`. Use an `if` statement to print out whether this value is equal to 2 (the correct answer).
+
+4. Use indexing to the print *last two* items of the list. Do this in two ways:
 	+ Use the `len()` function to first determine the length of the list, and then print the last two items with this information
 	+ Use negative indexing
 
-3. Create a new variable called `original_length` which contains the length of the list `numbers` (use the function `len()`). Now perform the following tasks, being sure to print after each one!
+5. Create a new variable called `original_length` which contains the length of the list `numbers` (use the function `len()`). Now perform the following tasks, being sure to print after each one!
 
 	+ Use the method `.append()` to add the new entry `21` to the end of the list `numbers`. 
 	+ Create another variable called `updated_length` which contains the length of `numbers` after you have appended 21. 
 	+ Write an `if/else` statement to check if `updated_length` is one larger than `original_length`. Try to incorporate the operator `+=` into your code. Rememeber, you can build this up in stages (i.e. you don't need to start with `+=` in the first try!). 
  
-4. Write an `if/elif/else` statement to compare the sum of the list to the value 50. Use the `sum()` function, which adds up all items in a list, for this task.
+6. Write an `if/elif/else` statement to compare the sum of the list to the value 50. Use the `sum()` function, which adds up all items in a list, for this task.
 
-5. Create a new list: `numbers2 = [-4, -8, -12, -16]`, and *append* this new list to `numbers`. This code has created a *nested list*. Print the final length of the list "numbers". Did you expect this? Why or why not?
+7. Create a new list: `numbers2 = [-4, -8, -12, -16]`, and *append* this new list to `numbers`. This code has created a *nested list*. Print the final length of the list "numbers". Did you expect this? Why or why not?
 
-6. Finally, determine the length of the final entry in `numbers` using indexing and the `len()` function. 
+8. Finally, determine the length of the final entry in `numbers` using indexing and the `len()` function. 
