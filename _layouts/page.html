@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <body id="page-top" class="index">
+    <script src="{{ "/css/prism.js" | relative_url }}"></script>
+  <!--  <script src="prism-python.min.js"></script> -->
+    {% include nav2.html %}
+
+
+ 
+     <main class="post" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+
+    {% include modals.html %}
+    {% include js.html %}
+    </body>
+</html>

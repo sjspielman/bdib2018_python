@@ -1,1 +1,30 @@
-theme: jekyll-theme-slate
+# Site settings
+title: Introduction to Python
+email: stephanie.spielman@temple.edu
+description: "Introduction to Python, geared towards biologists"
+keywords: "python, scientific computing, programming for biologists"
+subtitle1: "CCBB Big Data in Biology Summer School, 2018. UT Austin"
+subtitle2: "Designed and Taught by Stephanie J. Spielman, PhD"
+meta_author: SPIELMAN STEPHANIE
+
+future: true
+
+baseurl: "/bdib2018_python" # the subpath of your site, e.g. /blog
+url: "http://sjspielman.org" # the base hostname & protocol for your site, e.g. http://example.com
+
+
+# Color settings (hex-codes without the leading hash-tag)
+color:
+  primary: 21405B #80B3FF
+  primary-post: aebac3
+  primary-post2: c6ced5
+  primary-rgb: "255, 218, 66" #"128,179,255"
+  secondary: ffda42 #FD6E8A
+  secondary-dark: ccab24s #A2122F
+  about: 808080
+  text-gray: cccccc
+
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
