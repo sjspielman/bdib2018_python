@@ -17,7 +17,7 @@ p.small {
 */
 
 p {
-    font-size: 20px;
+    font-size: 16px;
     text-indent: 0;
 }
 
@@ -98,11 +98,12 @@ hr.star-primary:after {
     padding-bottom:150px;
     color: #000;
     background: #{{ site.color.primary-post }};
-    font-size: 20px;
+    font-size: 16px;
 }    
 
 .post p {
     text-indent: 0;
+    font-size: 16px;
     padding-left:15px;
 }
 .post a {
@@ -115,22 +116,22 @@ hr.star-primary:after {
 }
 
 .post h1 {
-    font-size: 45px;
+    font-size: 35px;
     text-align: center;
 }
 
 .post h2 {
-    font-size: 35px;
+    font-size: 28px;
     padding-bottom:10px;
     padding-top:20px;
 }
 
 .post h3 {
-    font-size: 25px;
+    font-size: 20px;
 }
    
 .post li{
-    padding-bottom: 20px;
+    padding-bottom: 8px;
     margin-left:20px;
 
 }
@@ -159,7 +160,7 @@ code {
 }
 
 pre {
-    font-size:16px;
+    font-size:14px;
 }
 
 header {
