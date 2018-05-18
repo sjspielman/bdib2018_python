@@ -41,6 +41,8 @@ h6 {
     font-weight: 600;
 }
 
+
+
 hr.star-light,
 hr.star-primary {
     margin: 25px auto 30px;
@@ -270,13 +272,14 @@ section {
 
 section h2 {
     margin: 0;
+    padding-bottom:30px;
     font-size: 3em;
 }
 
 section.success {
     color: #000;
     background: #{{ site.color.primary-post }};
-    font-size:20px;
+    font-size:16px;
     text-indent: 0px;
 }
 
@@ -291,18 +294,19 @@ section.success {
 }
 .success li {
     margin-left:20px;
-    padding-bottom:20px;
+    padding-bottom:8px;
 }
 
 section.materials {
     color: #{{ site.color.text-gray }};
     background: #{{ site.color.primary }};
+    font-size:16px;
 }
 
 .materials h2{
     margin: 0;
-    padding-bottom:20px;
-    font-size: 4em;
+    padding-bottom:30px;
+    font-size: 3em;
 }
 
 @media(max-width:767px) {
