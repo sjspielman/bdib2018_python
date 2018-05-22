@@ -64,7 +64,7 @@ animals = ["gorilla", "canary", "frog", "moth", "nematode"]
 	```
 
 
-6. Write a for-loop, using the `range()` function, to create a list of the powers of 2 from 2$^0$ to 2$^{15}$. (Note that in Python, the exponent symbol is `**`, as in `3**2 = 9`).
+6. Write a for-loop, using the `range()` function, to create a list of the powers of 2 from $$2^0$$ to $$2^{15}$$. (Note that in Python, the exponent symbol is `**`, as in `3**2 = 9`).
 
 	```python
 	## Loop to 16 since we want to *include* 15
