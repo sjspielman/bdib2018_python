@@ -185,15 +185,21 @@ Files used in these exercises can be downloaded from the course website. Be sure
 6. Write another for-loop over the same 20 files. For each file, create a second file named `fileX_odd.txt` (where X=1-20) which contains only the *odd-numbered lines* from the original file. For this, use a *counter* in the for-loop that goes over file lines (this will count the line numbers), but be careful: Remember that python indexing starts from 0, but the first line is technically line #1! 
 
 	```python
-	characters = 25
 	for i in range(1, 21):  ## i will be 1-20 with this range() specification
-		thisfile = "file" + str(i) + ".txt"
-		with open(thisfile, "r") as f:
-			i = 1 ## start our counter variable at 1, so that it matches "human" line numbering!
-			for line in f:
-				if i%2 == 1: ## is i an odd number? if so, print!
-					print(line)
-				i += 1    # increment the counter for numbering the next line
+	    thisfile = "file" + str(i) + ".txt"
+	    savelines = []
+	    with open(thisfile, "r") as f:
+	        x = 1 ## start our counter variable at 1, so that it matches "human" line numbering!
+	        for line in f:
+	            if x%2 == 1: ## is i an odd number? if so, print!
+	                savelines.append(line)
+	            x += 1    # increment the counter for numbering the next line
+	    
+	    ## create and open output file for writing to
+	    outfile = "file" + str(i) + "_odd.txt"
+	    with open(outfile, "w") as f:
+	        for line in savelines:
+	            f.write(line)
 	```
 
 
