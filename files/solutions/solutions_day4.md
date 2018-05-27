@@ -1,0 +1,119 @@
+---
+layout: page
+permalink: /day4_solutions
+---
+
+# Day 4 Solutions
+
+**Day 4 materials can be found [here]({{ '/day4' | relative_url }})**
+
+
+## Part I: Regular expressions
+
+
+1.  Use regular expressions to change the contents of the FASTA sequence file [`exampleGFP_raw.fasta`]({{ '/files/day4_files/exampleGFP_raw.fasta' | relative_url }}) to match the contents of the file [`exampleGFP_clean.fasta`]({{ '/files/day4_files/exampleGFP_clean.fasta' | relative_url }}).
+
+	+ Search regex:
+		```python
+		^(>\w+)\.*\d*=\s+.+\[(\w+) (\w+)\]\.*$
+		```
+	
+	+ Replace regex:	
+		```python
+		\1_\2_\3
+		```
+
+
+2. Generate a single masterful regular expression that can match a phone number in *any of the following formats below* and convert it to a phone number into this format: `(XXX)-XXX-XXXX`. 
+
+    ```python
+    555-555-1234
+    555.555.4321
+    555 555 4321
+    (555).555.6789
+    (555)-555-0123
+    ```	
+  
+	+ Search regex:
+		```python
+		\(*(\d+)\)*[-\. ](\d+)[-\. ](\d+)
+		```
+	
+	+ Replace regex:	
+		```python
+		(\1)-\2-\3
+		```
+		+ Note that special characters like `.` or `(` are ok to use normally in the replacement string.
+		
+## Part II and Part III
+
+**Solutions to Parts II and III are available in [_these python scripts_]({{ '/files/solutions/scripts_day4.zip' | relative_url }})**.
+
+
+1. The file [`fixed_width.txt`]({{ '/files/day4_files/fixed_width.txt' | relative_url }}) is a *fixed-width* file, meaning that each column is delimited by an arbitrary number of spaces to increase human-readability. This format, however, is the bane of the programmer's existence, as we like to have standardized delimiters. Use regular expressions to convert this file into a CSV file called `fixed_width_asCSV.csv`.
+
+2. Use the `re` module to change the file contents of the file [`data1_raw.txt`]({{ '/files/day4_files/data1_raw.txt' | relative_url }}) to match the contents of the file [`data1_clean.txt`]({{ '/files/day4_files/data1_clean.txt' | relative_url }}). Hints:
+	+ **Split** (with `.split()`) each line in the file into its individual columns, and use regular expressions (when needed) to reform each column
+	+ **Join** (with `.join()`) new columns back together to create the new lines
+	+ Remember that the first line of the file is the header and should be treated differently from lines containing content
+	+ For an extra challenge, write functions for the conversion of each column
+	
+
+
+
+
+## Part III: File manipulation
+
+**Solutions to Parts II and III are available in [_these python scripts_]({{ '/files/solutions/scripts_day4.zip' | relative_url }})**.
+
+1. Download today's exercise files, and create a new Python script in the directory called `csv_files/`. This directory contains *real research data* from [Stephanie's github](https://github.com/sjspielman/protein_rates_models). Files are named as:`<Ensembl-gene-id>.fna.<MODEL>.csv`, where each Ensembl gene ID has two associated model CSVs, called `JTT` and `WAG`. 
+
+	For this exercise, write a script to process these files in order to create a *single new tab-separated file* with the following columns:
+	+ `Ensembl-gene-ID`, obtained from the file name
+	+ `Model`, obtained from the file name
+	+ `MLE`, obtained from the file contents. This column should the value in each file's `MLE` column that is associated with the **second to last site** in each file (it will be different for each gene!)
+
+	This task will require you to obtain information both from each file name, as well as from within each file. Use the `os` module to obtain all file names as part of this exercise, and any string methods that are appropriate.
+
+
+2. Also in today's exercise files is a file called [`sacCer3_ncbiRefSeqCurated.gtf`]({{ '/files/day4_files/sacCer3_ncbiRefSeqCurated.gtf' | relative_url }}). This file is a [Gene Transfer Format](https://useast.ensembl.org/info/website/upload/gff.html) (`gtf`) file obtained from the [UCSC Genome Table Browser](http://genome.ucsc.edu/cgi-bin/hgTables), and it is a standard file format in next-generation sequence analysis. It is a tab-delimited and contains gene information from *S. cerevisiae*, with the following columns (but there is no header, as the format is standard):
+	+ The chromosome
+	+ The source of the information (in this case, all sources are the same)
+	+ The type of sequence, also known as feature, in this case either `start_codon`, `CDS` (coding sequence), `exon`, `stop_codon`
+	+ The starting index for the genomic feature
+	+ The ending index for for the genomic feature
+	+ The score for the feature (in this case all scores are `0.000000`)
+	+ The strand of the feature, either `+` for positive or `-` for negative
+	+ The phase of the feature, either `.`, `0`, `1`, or `2`. This information indicates the reading frame, specifically the number of bases that need to be skipped before the codon structure begins. A value of `.` indicates that there is no specific phase information to deal with
+	+ The gene information with a specific idenfitier, in this case `gene_id`.
+	
+	In this particular `gtf` file, each gene id will have four associated lines, for example:
+	
+	
+	``` python 
+	chrI	sacCer3_ncbiRefSeqCurated	start_codon 130799 130801 0.000000 + . gene_id "NM_001178157.1";
+	chrI	sacCer3_ncbiRefSeqCurated	CDS	130799 131980 0.000000 + 0 gene_id "NM_001178157.1";
+	chrI	sacCer3_ncbiRefSeqCurated	stop_codon 131981 131983 0.000000 . gene_id "NM_001178157.1";
+	chrI	sacCer3_ncbiRefSeqCurated	exon 130799 131983 0.000000 + . gene_id "NM_001178157.1";
+	```
+	<br>
+	**Perform the following tasks using this file. For each incremental task, AVOID HARDCODING!!**
+	
+	
+	+ Write a script to extract only lines whose feature is `CDS`, creating a new file called `sacCer3_ncbiRefSeqCurated_EXON.gtf`. Perform this task by specifically asking (using `if`) if the third column is equal to "CDS".
+	+ Modify the previous script to again create a new file only of CDS's, but this time do so for *only* sequences which fall on chromosome `chrV`.
+	+ Modify yet again to export exons from chrV, with the additional condition that you should only consider CDS's on the *positive* strand
+	+ Modify yet again, with the additional condition that you should only consider CDS's which are $$\geq500$$ base pairs in length.
+	+ *BONUS modification for the highly motivated* :Modify yet again, considering only CDS's whose gene_id is the **first** version of the gene. More specifically, gene ids are named as `NM_<somenumbers>.<VERSIONUMBER`. In other words, you want the number after the decimal to equal 1.
+	
+	Once you have built up all this final script, modify it one last time by incorporating the `sys` module to have these five (or four) *command line arguments*, in this order:
+		
+	+ chromosome of interest
+	+ strand of interest
+	+ length of interest 
+	+ version of interest (if you took that step above!)
+	+ output file name
+	
+Assume we always want the `CDS` feature.
+
+Remember: `sys` always reads in arguments as strings, so you may need to convert to numbers with `int()` or `float()`.
